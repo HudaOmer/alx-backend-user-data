@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Module of session authenticating views.
+"""
+Module of session authenticating views
 """
 import os
 from typing import Tuple
@@ -11,9 +12,11 @@ from api.v1.views import app_views
 
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
 def login() -> Tuple[str, int]:
-    """POST /api/v1/auth_session/login
+    """
+    Route:
+    POST /api/v1/auth_session/login
     Return:
-      - JSON representation of a User object.
+      - JSON representation of a User object
     """
     not_found_res = {"error": "no user found for this email"}
     email = request.form.get('email')
@@ -39,9 +42,11 @@ def login() -> Tuple[str, int]:
 @app_views.route(
     '/auth_session/logout', methods=['DELETE'], strict_slashes=False)
 def logout() -> Tuple[str, int]:
-    """DELETE /api/v1/auth_session/logout
+    """
+    Route:
+    DELETE /api/v1/auth_session/logout
     Return:
-      - An empty JSON object.
+      - An empty JSON object
     """
     from api.v1.app import auth
     is_destroyed = auth.destroy_session(request)

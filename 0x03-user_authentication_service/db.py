@@ -43,7 +43,7 @@ class DB:
     def add_user(self, email: str, hashed_password: str) -> User:
         """
         Create a User object and save it to the database
-        
+ 
         Args:
             email (str): user's email address
             hashed_password (str): password hashed by bcrypt's hashpw
